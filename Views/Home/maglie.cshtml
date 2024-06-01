@@ -1,0 +1,197 @@
+@model IEnumerable<Cau.Tumidei._5h.ECommerce.Models.Jersey>
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JerseyStore - Maglie da Calcio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        header {
+            background-color: #024e76;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .product {
+            background: white;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: calc(25% - 20px);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product h2 {
+            font-size: 16px;
+            color: #333;
+        }
+        .product p {
+            color: #666;
+            font-size: 14px;
+        }
+        footer {
+            background-color: #024e76;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JerseyStore - Maglie da Calcio</h1>
+        <p>Scopri le nostre ultime collezioni di maglie da calcio!</p>
+    </header>
+
+    <div class="product-grid">
+        @{
+            foreach( var item in @Model )
+            {
+                <div class="product">
+                    <img src="/img/@item.Tipologia" alt="@item.Squadra">
+                    <h2>@item.Squadra</h2>
+                    <p>Prezzo: €@item.Prezzo</p>
+                    <p>Taglia: @item.Taglia</p>
+                </div>
+            }
+        }
+        
+        @* <div class="product">
+            <img src="/img/juv.jpg" alt="Maglia Juventus 2024">
+            <h2>Maglia Juventus 2024</h2>
+            <p>Prezzo: €89.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/mil.jpg" alt="Maglia Milan 2024">
+            <h2>Maglia Milan 2024</h2>
+            <p>Prezzo: €84.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/int.jpg" alt="Maglia Inter 2024">
+            <h2>Maglia Inter 2024</h2>
+            <p>Prezzo: €79.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/rom.jpg" alt="Maglia Roma 2024">
+            <h2>Maglia Roma 2024</h2>
+            <p>Prezzo: €85.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/nap.jpg" alt="Maglia Napoli 2024">
+            <h2>Maglia Napoli 2024</h2>
+            <p>Prezzo: €87.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/laz.jpg" alt="Maglia Lazio 2024">
+            <h2>Maglia Lazio 2024</h2>
+            <p>Prezzo: €82.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/real.jpg" alt="Maglia Real Madrid 2024">
+            <h2>Maglia Real Madrid 2024</h2>
+            <p>Prezzo: €99.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/bar.jpg" alt="Maglia Barcelona 2024">
+            <h2>Maglia Barcelona 2024</h2>
+            <p>Prezzo: €98.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/ars.jpg" alt="Maglia Arsenal 2024">
+            <h2>Maglia Arsenal 2024</h2>
+            <p>Prezzo: €90.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/liv.jpg" alt="Maglia Liverpool 2024">
+            <h2>Maglia Liverpool 2024</h2>
+            <p>Prezzo: €90.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/che.jpg" alt="Maglia Chelsea 2024">
+            <h2>Maglia Chelsea 2024</h2>
+            <p>Prezzo: €87.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/city.jpg" alt="Maglia Manchester City 2024">
+            <h2>Maglia Manchester City 2024</h2>
+            <p>Prezzo: €90.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/utd.jpg" alt="Maglia Manchester United 2024">
+            <h2>Maglia Manchester United 2024</h2>
+            <p>Prezzo: €90.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/lev.jpg" alt="Maglia Bayer Leverkusen 2024">
+            <h2>Maglia Bayer Leverkusen 2024</h2>
+            <p>Prezzo: €84.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/bay.jpg" alt="Maglia Bayern Monaco 2024">
+            <h2>Maglia Bayern Monaco 2024</h2>
+            <p>Prezzo: €89.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/bvb.jpg" alt="Maglia Borussia Dortmund 2024">
+            <h2>Maglia Borussia Dortmund 2024</h2>
+            <p>Prezzo: €86.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/psg.jpg" alt="Maglia PSG 2024">
+            <h2>Maglia PSG 2024</h2>
+            <p>Prezzo: €90.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/ita.jpg" alt="Maglia Nazionale Italiana 2024">
+            <h2>Maglia Nazionale Italiana 2024</h2>
+            <p>Prezzo: €95.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/fra.jpg" alt="Maglia Nazionale Francese 2024">
+            <h2>Maglia Nazionale Francese 2024</h2>
+            <p>Prezzo: €93.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/spa.jpg" alt="Maglia Nazionale Spagnola 2024">
+            <h2>Maglia Nazionale Spagnola 2024</h2>
+            <p>Prezzo: €90.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/por.jpg" alt="Maglia Nazionale Portoghese 2024">
+            <h2>Maglia Nazionale Portoghese 2024</h2>
+            <p>Prezzo: €97.99</p>
+        </div>
+        <div class="product">
+            <img src="/img/bra.jpg" alt="Maglia Nazionale Brasiliana 2024">
+            <h2>Maglia Nazionale Brasiliana 2024</h2>
+            <p>Prezzo: €92.99</p>
+        </div> *@
+    </div>
+
+    <footer>
+        <p>&copy; 2024 JerseyStore. Tutti i diritti riservati.</p>
+    </footer>
+</body>
+</html>
